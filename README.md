@@ -1,6 +1,6 @@
 # Momentum strategies
 
-This repository is for my personal "out of curiosity" projects exploring momentum strategies, implemented in **R** and **Python**. This project is motivated by various approaches I encountered while writing a thesis on momentum strategies. The code generates a summary table of characteristics for momentum-based decile portfolios and optionally outputs monthly portfolio data for further analysis.
+This repository is for my personal "out of curiosity" projects exploring momentum strategies, implemented in **R** and **Python**. This project is motivated by some approaches I encountered while writing a thesis on momentum strategies, other approaches I have come across later on. The code generates a summary table of characteristics for momentum-based decile portfolios and optionally outputs monthly portfolio data for further analysis.
 
 ## Overview
 The primary purpose of this project is to form and analyze decile-based momentum portfolios using a "12-1" (common in academic research) construction method (past 12-month returns, excluding the most recent month to avoid reversal effects) and a 1-month holding period with monthly rebalancing.
