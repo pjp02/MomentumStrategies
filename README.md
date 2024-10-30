@@ -38,3 +38,6 @@ The code is designed to work with data in a standard **CRSP** format. Due to cop
 ## Future development
 Planning to extend this project to include different lagged (t-1) constructions and holding periods for further testing and analysis.
 
+## Using the function
+Install the packages, declare the function and then run the function with inputs from the editor or from terminal.
+
