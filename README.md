@@ -73,5 +73,7 @@ where:
 
 
 ## Using the function
-Install the packages, declare the function and then run the function with inputs from the editor or from terminal.
+Install the packages, declare the function and then run the function with inputs from the editor or from terminal. 
+
+Performance not optimized, yet redundant and over-lapping operations avoided, modern PC runs roughly 1 million return observations in 1 minute. Past 50 years of CRSP data from major US stock exchanges took roughly 3-4 minutes.
 
