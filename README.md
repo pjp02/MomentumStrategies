@@ -21,7 +21,7 @@ The code allows adjusting some aspects of the momentum strategy. In particular, 
 1. **Data source**: Path to the data file in CSV format (e.g., `"folder/CRSP_data.csv"`). The data should have the following columns: `date`, `CUSIP`, `PRC`, `RET`, `SHROUT`, `SICCD`.
 2. **Signal (ranking method)**: 
    - `1` for pure 12-1 cumulative returns
-   - `2` for volatility-controlled returns (motivation: gradual trading & frog in the pan)
+   - `2` for volatility-controlled returns (motivation: gradual trading (Kyle, 1985) & frog in the pan (Da, et al., 2014))
 3. **Portfolio formation**:
    - `1` for value-weighted
    - `2` for equally-weighted
@@ -29,8 +29,8 @@ The code allows adjusting some aspects of the momentum strategy. In particular, 
    - `1` to include the smallest 5% of eligible stocks
    - `2` to exclude the smallest 5%
 5. **Banking and finance exclusion**:
-   - `1` to exclude
-   - `2` to include 
+   - `1` to include
+   - `2` to exclude 
 
 ## Data
 The code is designed to work with data in a standard **CRSP** format. Due to copyright restrictions and the broad availability of CRSP data, no example or pseudodata is included in this repository.
