@@ -36,7 +36,41 @@ The code allows adjusting some aspects of the momentum strategy. In particular, 
 The code is designed to work with data in a standard **CRSP** format. Due to copyright restrictions and the broad availability of CRSP data, no example or pseudodata is included in this repository.
 
 ## Future development
-Planning to extend this project to include different lagged (t-1) constructions and holding periods for further testing and analysis.
+Planning to extend this project to include different lagged (t-1) constructions and holding periods for further testing and analysis. 
+
+From BSc thesis: Conditioning short-leg of WML on short run market state vs long run market state "level" in order to anticipate crashes and the subsequent rebounds, which also rebound the short leg of WML, causing the strategy to crash. Interesting results, yet maybe not so interesting "function" wise as it needs some in-sample calibration and out-of-sample testing. 
+
+### Panic state indicator and conditional portfolio return formula
+
+The panic state indicator $I_t^P(\delta)$ for period $t$ is defined as:
+
+$$
+I_t^P(\delta) = \begin{cases} 
+1, & r_{m,t}^{SR} < r_{m,t}^{LR} - \delta \sigma_{m,t}^{LR} \\ 
+0, & r_{m,t}^{SR} \geq r_{m,t}^{LR} - \delta \sigma_{m,t}^{LR} 
+\end{cases}
+$$
+
+where with some illustrative lookback periods:
+- $r_{m,t}^{SR} = \frac{1}{3} \sum_{i=-4}^{-2} r_{m,i}$: short run average return
+- $r_{m,t}^{LR} = \bar{r_t} = \frac{1}{120} \sum_{i=-121}^{-2} r_{m,i}$: long run average return
+- $\sigma_{m,t}^{LR} = \sqrt{\frac{1}{119} \sum_{i=-121}^{-2} (r_{m,i} - \bar{r_t})^2}$: long run standard deviation
+
+Here, $\delta \in \mathbb{R}_+$ represents a positive scalar. This $\delta$ must be calibrated by in-sample simulations.
+
+When $I_t^P = 0$, the market is stable. When $I_t^P = 1$, the market is in a state of panic.
+
+The portfolio return $r_{p,t}(\delta)$ is then given by:
+
+$$
+r_{p,t}(\delta) = (1 - I_t^P(\delta))(r_{W,t} - r_{L,t}) + I_t^P(\delta) \left( \frac{1}{2}(r_{W,t} + r_{L,t}) - r_{f,t} \right)
+$$
+
+where:
+- $r_{W,t}$: return of the 10th (winner) momentum decile
+- $r_{L,t}$: return of the 1st (loser) momentum decile
+- $r_{f,t}$: risk-free rate
+
 
 ## Using the function
 Install the packages, declare the function and then run the function with inputs from the editor or from terminal.
