@@ -18,17 +18,17 @@ The primary purpose of this project is to form and analyze decile-based momentum
 ## "Strategy parameters"
 The code allows adjusting some aspects of the momentum strategy. In particular, parameters 4) and 5) allow users to explore factors that are often excluded in academic research.
 
-1. **Data Source**: Path to the data file in CSV format (e.g., `"folder/CRSP_data.csv"`). The data should have the following columns: `date`, `CUSIP`, `PRC`, `RET`, `SHROUT`, `SICCD`.
-2. **Signal (Ranking Method)**: 
+1. **Data source**: Path to the data file in CSV format (e.g., `"folder/CRSP_data.csv"`). The data should have the following columns: `date`, `CUSIP`, `PRC`, `RET`, `SHROUT`, `SICCD`.
+2. **Signal (ranking method)**: 
    - `1` for pure 12-1 cumulative returns
    - `2` for volatility-controlled returns (motivation: gradual trading & frog in the pan)
-3. **Portfolio Formation**:
+3. **Portfolio formation**:
    - `1` for value-weighted
    - `2` for equally-weighted
-4. **"MicroCap" Inclusion**:
+4. **"Micro cap" exclusion**:
    - `1` to include the smallest 5% of eligible stocks
    - `2` to exclude the smallest 5%
-5. **Banking and Finance Exclusion**:
+5. **Banking and finance exclusion**:
    - `1` to exclude
    - `2` to include 
 
