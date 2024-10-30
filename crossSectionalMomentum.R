@@ -82,13 +82,13 @@ csMomentumFunction <- function(dataSource, signal, portfolioFormation, microCaps
           fill = NA
         )) - 1
       } else if (signal == 2) {
-        exp(rollapply(
+        (exp(rollapply(
           logRets,
           width = 11,
           FUN = cumRetFunction,
           align = "right",
           fill = NA
-        )) - 1 / rollapply(
+        )) - 1) / rollapply(
           logRets,
           width = 11,
           FUN = function(x) sqrt(var(x, na.rm = TRUE)),
@@ -188,11 +188,11 @@ csMomentumFunction <- function(dataSource, signal, portfolioFormation, microCaps
 # 2) signal             : 1 for pure 12-1 cumulative returns, 2 for volatility controlled -||- 
 # 3) portfolioFormation : 1 for value weighted, 2 for equally weighted
 # 4) microCaps          : 1 for including smallest 5% otherwise eligible, 2 for excluding -||-
-# 5) banksFinance       : 1 for excluding banks and finance, 2 for excluding -||-  
+# 5) banksFinance       : 1 for including banks and finance, 2 for excluding -||-  
 # 6) outputName         : NA if no output, for output "folder/CRSP_data.csv"
 
 csMomentumFunction("folder/CRSP_data.csv",
-                   1,
+                   2,
                    1,
                    2,
                    2,
